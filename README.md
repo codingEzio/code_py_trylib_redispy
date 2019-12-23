@@ -1,6 +1,7 @@
 
 ### Oh
 - You *cannot* write comments in *Redis*.
+- Commands in *Redis* are **case-insensitive** (eh?).
 
 ### *Get*
   ```bash
@@ -68,6 +69,28 @@
   HMSET pypa url "https://pypa.io" isitawesome "awesome"
   HMGET pypa url isitawesome
   HGETALL pypa
+  ```
+
+### Library :: `redis-py` <small>(`pip3 install redis==3.3.11`)</small>
+  ```python
+  import redis
+  r = redis.Redis()
+
+  r.set("name", "jay")
+  r.get("name")                   # b'jay'
+  r.get("name").decode("utf-8")   #  'jay'
+
+  r.mset({"name": "jay", "age": 69})
+  r.mget(["name", "age"])
+
+  # supported key types: bytes, str, int, float
+  import datetime as dt
+  today    = dt.date.today().isoformat()
+  visitors = ["Jay", "Gloria", "Phil"]
+
+  r.sadd    (today, *visitors)  # now it raises error I don't know why exactly
+  r.smembers(today)
+  r.scard   (today)
   ```
 
 ### Reading materials
