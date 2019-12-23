@@ -3,6 +3,12 @@
 - You *cannot* write comments in *Redis*.
 - Commands in *Redis* are **case-insensitive** (eh?).
 
+### What is [*Redis*](https://redis.io/documentation)
+- Kinda like a *data structure server* (more than `dict` in Python)
+
+### What is [*hiredis*](https://pypi.org/project/hiredis/)
+> Library *redis-py* comes with two parsers: `HiredisParser` and `PythonParser`. The former uses the `hiredis` library to parse responses from the redis server, while the latter uses Python. *Hiredis* is a library that uses C, so it is much **faster** than the python parser, but requires installing the library separately <small>(quote from [here](https://django-redis-cache.readthedocs.io/en/latest/advanced_configuration.html#pluggable-parser-classes))</small>.
+
 ### *Get*
   ```bash
   # for macOS
@@ -43,9 +49,6 @@
   127.0.0.1:6379> help
   127.0.0.1:6379> help MSET
   ```
-
-### What *is* Redis?
-- Kinda like a *data structure server* (more than `dict` in Python)
 
 ### Examples
 - All of this were done in `redis-cli`
