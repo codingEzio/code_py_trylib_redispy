@@ -114,7 +114,8 @@
   ZADD clerk  -100 'Jones' 1000 'Opal'   1200 'Olwen'
 
   # Sorted set :: ZUNIONSTORE
-  ZUNIONSTORE yay 2 police clerk                              # mixed them all
+  ZUNIONSTORE yay 2 police clerk                              # mixed (default: SUM)
+  ZUNIONSTORE yay 2 police clerk AGGREGATE SUM                # mixed (same but explicit)
   ZUNIONSTORE yay 2 police clerk WEIGHTS 3 0.5                # *3 *0.5
   ZUNIONSTORE yay 2 police clerk WEIGHTS 3 0.5 AGGREGATE SUM  # *3 *0.5, SUM 'Jones'
   ```
